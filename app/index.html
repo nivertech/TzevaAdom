@@ -68,8 +68,26 @@
             });
         });
         
+        angular.module('tzevaAdomApp').filter('codeToReadable', function($filter) {
+            return function(input, arr) {
+                  var result = $filter('filter')(arr, {code: input });
+                
+                if (result.length > 0)
+                {
+                    var areas = _.pluck(result, 'realName');
+                    return areas.join(', ') + ' (' + input + ', זמן כניסה: ' + result[0].time + ')';
+                }
+                
+                return input;
+            };
+        });
+        
         angular.module('tzevaAdomApp')
         .controller('MainCtrl', ['$scope', '$http', '$interval', function ($scope, $http, $interval) {
+            $scope.codes = [];
+            $http.get('codes.json').success(function(codes) {
+                $scope.codes = codes;
+            });
             $scope.alerts = [];
             $scope.isLoading = false;
             $scope.prevAlerts = [];
