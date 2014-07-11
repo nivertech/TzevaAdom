@@ -78,14 +78,16 @@
                 $scope.isLoading = true;
 
                 $http.get('http://tzevadom.net84.net/').success(function (response) {
-                    $scope.prevAlerts = $scope.prevAlerts.concat($scope.alerts);
-                    $scope.alerts = angular.fromJson(response.replace(/\r?\n?[^\r\n]*$/, "")).data;
-
                     var tmpArr = [];
 
                     angular.forEach($scope.alerts, function(value) {
                         tmpArr.push({place: value, time: new Date()});
                     });
+
+                    $scope.prevAlerts = tmpArr;
+                    $scope.alerts = angular.fromJson(response.replace(/\r?\n?[^\r\n]*$/, "")).data;
+
+
 
                     if ($scope.alerts.length > 0)
                     {
