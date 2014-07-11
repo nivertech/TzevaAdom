@@ -84,10 +84,12 @@
                         tmpArr.push({place: value, time: new Date()});
                     });
                     
-                    $scope.alerts = angular.fromJson(response.replace(/\r?\n?[^\r\n]*$/, "")).data;
-                    
                     if ($scope.alerts.length > 0)
                         $scope.prevAlerts = tmpArr;
+                    
+                    $scope.alerts = angular.fromJson(response.replace(/\r?\n?[^\r\n]*$/, "")).data;
+                    
+
                     
                     $scope.isLoading = false;
                 });

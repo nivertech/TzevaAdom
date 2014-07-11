@@ -20,16 +20,7 @@ angular.module('tzevaAdomApp')
                 $scope.prevAlerts = $scope.prevAlerts.concat($scope.alerts);
                 $scope.alerts = angular.fromJson(response.replace(/\r?\n?[^\r\n]*$/, "")).data;
                 
-                var tmpArr = [];
-                
-                angular.forEach($scope.alerts, function(value) {
-                    tmpArr.push({place: value, time: new Date()});
-                });
-                
-                if ($scope.alerts.length > 0)
-                {
-                    $scope.audio1.playPause();
-                }
+
                 
                 $scope.isLoading = false;
             });
