@@ -28,7 +28,7 @@ angular.module('tzevaAdomApp')
                 
                 if ($scope.alerts.length > 0)
                 {
-                    ngAudio.play('http://soundjax.com/reddo/5954%5ERINGOUT.mp3');
+                    $scope.audio1.playPause();
                 }
                 
                 $scope.isLoading = false;

@@ -47,7 +47,7 @@
     <script src="http://code.angularjs.org/1.2.18/angular.min.js"></script>
     <script src="http://code.angularjs.org/1.2.18/angular-route.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
-    <script src="http://danielstern.github.io/ngAudio/angular.audio.js"></script>
+    <script src="http://mrgamer.github.io/angular-media-player/libs/angular-media-player.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -55,7 +55,7 @@
         angular
         .module('tzevaAdomApp', [
             'ngRoute',
-            'ngAudio'
+            'mediaPlayer'
         ])
         .config(function ($routeProvider) {
             $routeProvider
@@ -69,7 +69,7 @@
         });
         
         angular.module('tzevaAdomApp')
-        .controller('MainCtrl', ['$scope', '$http', '$interval', 'ngAudio', function ($scope, $http, $interval, ngAudio) {
+        .controller('MainCtrl', ['$scope', '$http', '$interval', function ($scope, $http, $interval) {
             $scope.alerts = [];
             $scope.isLoading = false;
             $scope.prevAlerts = [];
@@ -86,14 +86,6 @@
 
                     $scope.prevAlerts = tmpArr;
                     $scope.alerts = angular.fromJson(response.replace(/\r?\n?[^\r\n]*$/, "")).data;
-
-
-
-                    if ($scope.alerts.length > 0)
-                    {
-                        ngAudio.play('http://soundjax.com/reddo/5954%5ERINGOUT.mp3');
-                    }
-
                     $scope.isLoading = false;
                 });
             }, 5000);
