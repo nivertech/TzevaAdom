@@ -95,7 +95,7 @@
             $interval(function () {
                 $scope.isLoading = true;
 
-                $http.get('http://tzevadom.net84.net/').success(function (response) {
+                $http.get('http://rumorun.com/dotan/').success(function (response) {
                     var tmpArr = [];
 
                     angular.forEach($scope.alerts, function(value) {
@@ -105,7 +105,7 @@
                     if ($scope.alerts.length > 0)
                         $scope.prevAlerts = tmpArr;
                     
-                    $scope.alerts = angular.fromJson(response.replace(/\r?\n?[^\r\n]*$/, "")).data;
+                    $scope.alerts = response.data;
                     
 
                     
