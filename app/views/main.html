@@ -2,10 +2,10 @@
     <audio autoplay ng-if="alerts.length > 0">
         <source src="http://images.wikia.com/toontown/images/1/10/Telephone_ring.ogg" type="audio/ogg">
     </audio>
-    <h1 ng-show="alerts.length === 0">אין התראות כרגע.</h1>
+    <h1 ng-show="alerts.length === 0">אין התרעות כרגע.</h1>
     <div ng-show="isLoading"><span class="glyphicon glyphicon-refresh"></span> טוען...</div>
     <div ng-show="alerts.length > 0">
-        <h3>התראות עכשיו</h3>
+        <h3התרעות עכשיו:</h3>
         <ul class="list-group">
             <li class="list-group-item-danger" ng-repeat="alert in alerts track by $index">
                 {{alert}}
@@ -15,7 +15,7 @@
 </div>
 
 <div class="jumbotron" style="direction: rtl;">
-    <h3>התראות קודמות</h3>
+    <h3>התרעות אחרונות:</h3>
     <ul class="list-group">
         <li class="list-group-item-danger" ng-repeat="alert in prevAlerts track by $index">
             {{alert.place}} ({{ alert.time | date:'medium'}})
