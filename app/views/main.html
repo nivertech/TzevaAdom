@@ -7,7 +7,7 @@
     <div ng-show="alerts.length > 0">
         <h3התרעות עכשיו:</h3>
         <ul class="list-group">
-            <li class="list-group-item-danger" ng-repeat="alert in alerts track by $index">
+            <li class="list-group-item list-group-item-danger" ng-repeat="alert in alerts track by $index">
                 <strong>{{alert | codeToReadable:codes }}</strong>
             </li>
         </ul>
@@ -17,7 +17,7 @@
 <div class="jumbotron" style="direction: rtl;">
     <h3>התרעות אחרונות:</h3>
     <ul class="list-group">
-        <li class="list-group-item-danger" ng-repeat="alert in prevAlerts track by $index">
+        <li class="list-group-item list-group-item-danger" ng-repeat="alert in prevAlerts track by $index">
             <strong>{{alert.place | codeToReadable:codes }}</strong> - ב-{{ alert.time | date:'medium'}}
         </li>
     </ul>
